@@ -19,11 +19,11 @@ const PHASES = [
     goal: "You can look at a scatter plot and see a model. You understand what regression does and what the fit metrics mean.",
     checkpoint: "You can explain why CV(RMSE) < 15% doesn't guarantee a good model, and why a scatter plot tells you more than a time series for M&V.",
     steps: [
-      { id: "s01", label: "Two Views of Data", time: "10 min", url: "https://mv-course.vercel.app/#/fundamentals", site: "mv-course", desc: "Same 12 months as time series vs. scatter plot. Why M&V needs the scatter view." },
-      { id: "s02", label: "Why Linear Models?", time: "15 min", url: "https://mv-course.vercel.app/#/fundamentals", site: "mv-course", desc: "Drag your own regression line. Watch residuals update. Click 'Show OLS' to see what the math finds." },
-      { id: "s03", label: "What Is a Residual?", time: "15 min", url: "https://mv-course.vercel.app/#/fundamentals", site: "mv-course", desc: "Click individual points to dissect the error. See squared errors. Spot patterns in residuals." },
-      { id: "s04", label: "Goodness of Fit", time: "20 min", url: "https://mv-course.vercel.app/#/fundamentals", site: "mv-course", desc: "Animated variance decomposition. R², RMSE, CV(RMSE), NMBE — what each tells you and when they lie." },
-      { id: "s05", label: "CV(RMSE) Deep Dive", time: "15 min", url: "https://mv-course.vercel.app/#/fundamentals", site: "mv-course", desc: "The baseload slider: watch CV(RMSE) drop without the model improving. The savings slider: when are savings detectable?" },
+      { id: "s01", label: "Two Views of Data", time: "10 min", url: "https://cfdesigns.vercel.app/#/fundamentals", site: "cfdesigns", desc: "Same 12 months as time series vs. scatter plot. Why M&V needs the scatter view." },
+      { id: "s02", label: "Why Linear Models?", time: "15 min", url: "https://cfdesigns.vercel.app/#/fundamentals", site: "cfdesigns", desc: "Drag your own regression line. Watch residuals update. Click 'Show OLS' to see what the math finds." },
+      { id: "s03", label: "What Is a Residual?", time: "15 min", url: "https://cfdesigns.vercel.app/#/fundamentals", site: "cfdesigns", desc: "Click individual points to dissect the error. See squared errors. Spot patterns in residuals." },
+      { id: "s04", label: "Goodness of Fit", time: "20 min", url: "https://cfdesigns.vercel.app/#/fundamentals", site: "cfdesigns", desc: "Animated variance decomposition. R², RMSE, CV(RMSE), NMBE — what each tells you and when they lie." },
+      { id: "s05", label: "CV(RMSE) Deep Dive", time: "15 min", url: "https://cfdesigns.vercel.app/#/fundamentals", site: "cfdesigns", desc: "The baseload slider: watch CV(RMSE) drop without the model improving. The savings slider: when are savings detectable?" },
     ],
   },
   {
@@ -35,9 +35,9 @@ const PHASES = [
     checkpoint: "You can take monthly utility data, select a change-point model, fit it, validate against ASHRAE Guideline 14, and report savings with a 95% confidence interval.",
     note: "Do this for all three buildings. Each teaches something different about model selection.",
     steps: [
-      { id: "s06", label: "Heating Building — Office", time: "15 min", url: "https://mv-course.vercel.app/#/workbench", site: "mv-course", desc: "50k sq ft office, Chicago. Strong heating slope. Fit a 3-parameter heating model. All 5 workbench steps." },
-      { id: "s07", label: "Cooling Building — Retail", time: "15 min", url: "https://mv-course.vercel.app/#/workbench", site: "mv-course", desc: "25k sq ft retail, Houston. Strong cooling slope. Fit a 3-parameter cooling model. Compare the change point." },
-      { id: "s08", label: "Mixed Building — School", time: "20 min", url: "https://mv-course.vercel.app/#/workbench", site: "mv-course", desc: "75k sq ft school, Nashville. Both heating and cooling. Fit a 5-parameter model. The hardest of the three." },
+      { id: "s06", label: "Heating Building — Office", time: "15 min", url: "https://cfdesigns.vercel.app/#/workbench", site: "cfdesigns", desc: "50k sq ft office, Chicago. Strong heating slope. Fit a 3-parameter heating model. All 5 workbench steps." },
+      { id: "s07", label: "Cooling Building — Retail", time: "15 min", url: "https://cfdesigns.vercel.app/#/workbench", site: "cfdesigns", desc: "25k sq ft retail, Houston. Strong cooling slope. Fit a 3-parameter cooling model. Compare the change point." },
+      { id: "s08", label: "Mixed Building — School", time: "20 min", url: "https://cfdesigns.vercel.app/#/workbench", site: "cfdesigns", desc: "75k sq ft school, Nashville. Both heating and cooling. Fit a 5-parameter model. The hardest of the three." },
     ],
   },
   {
@@ -62,12 +62,12 @@ const PHASES = [
     checkpoint: "You can articulate why you chose that boundary, that baseline period, and how you'd handle a non-routine event.",
     note: "These can be done in any order. Pick what's relevant to your next project.",
     steps: [
-      { id: "s11", label: "Measurement Boundary", time: "20 min", url: "https://mv-course.vercel.app/#/boundary", site: "mv-course", desc: "Where you draw the line determines what the model sees. Whole-facility vs. retrofit isolation tradeoffs." },
-      { id: "s12", label: "Duration", time: "20 min", url: "https://mv-course.vercel.app/#/duration", site: "mv-course", desc: "How many months of baseline? The occupancy trap: same building, opposite savings conclusions depending on which 12 months." },
-      { id: "s13", label: "Non-Routine Adjustments", time: "25 min", url: "https://mv-course.vercel.app/#/cases", site: "mv-course", desc: "A server room appears mid-reporting. A chiller fails during baseline. Toggle adjustments on/off and see the impact." },
-      { id: "s14", label: "Beyond One Variable", time: "20 min", url: "https://mv-course.vercel.app/#/beyond", site: "mv-course", desc: "When monthly temperature isn't enough. Step through adding variables — watch R² go from 0.02 to 0.99." },
-      { id: "s15", label: "Architecture of Uncertainty", time: "15 min", url: "https://mv-course.vercel.app/#/architecture", site: "mv-course", desc: "Epistemic vs. aleatory vs. ontological uncertainty. What we know, what we don't, and what ain't so." },
-      { id: "s16", label: "Simulation as Physical Model", time: "15 min", url: "https://mv-course.vercel.app/#/simulation", site: "mv-course", desc: "When statistical models reach their limits. EnergyPlus, Bayesian calibration, and physics-based counterfactuals." },
+      { id: "s11", label: "Measurement Boundary", time: "20 min", url: "https://cfdesigns.vercel.app/#/boundary", site: "cfdesigns", desc: "Where you draw the line determines what the model sees. Whole-facility vs. retrofit isolation tradeoffs." },
+      { id: "s12", label: "Duration", time: "20 min", url: "https://cfdesigns.vercel.app/#/duration", site: "cfdesigns", desc: "How many months of baseline? The occupancy trap: same building, opposite savings conclusions depending on which 12 months." },
+      { id: "s13", label: "Non-Routine Adjustments", time: "25 min", url: "https://cfdesigns.vercel.app/#/cases", site: "cfdesigns", desc: "A server room appears mid-reporting. A chiller fails during baseline. Toggle adjustments on/off and see the impact." },
+      { id: "s14", label: "Beyond One Variable", time: "20 min", url: "https://cfdesigns.vercel.app/#/beyond", site: "cfdesigns", desc: "When monthly temperature isn't enough. Step through adding variables — watch R² go from 0.02 to 0.99." },
+      { id: "s15", label: "Architecture of Uncertainty", time: "15 min", url: "https://cfdesigns.vercel.app/#/architecture", site: "cfdesigns", desc: "Epistemic vs. aleatory vs. ontological uncertainty. What we know, what we don't, and what ain't so." },
+      { id: "s16", label: "Simulation as Physical Model", time: "15 min", url: "https://cfdesigns.vercel.app/#/simulation", site: "cfdesigns", desc: "When statistical models reach their limits. EnergyPlus, Bayesian calibration, and physics-based counterfactuals." },
     ],
   },
   {
@@ -84,15 +84,13 @@ const PHASES = [
 ];
 
 const SITE_COLORS = {
-  "mv-course": C.amber,
+  "cfdesigns": C.copper,
   "bayesian-mv": C.violet,
-  "cfdesigns": C.green,
 };
 
 const SITE_LABELS = {
-  "mv-course": "IPMVP Course",
-  "bayesian-mv": "Bayesian Module",
   "cfdesigns": "CF Designs",
+  "bayesian-mv": "Bayesian Module",
 };
 
 const STORAGE_KEY = "mv-checklist-progress";
@@ -312,9 +310,9 @@ export default function StudentMap() {
         <div style={{ marginTop: 32, textAlign: "center" }}>
           <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", marginBottom: 24 }}>
             {[
-              { label: "IPMVP Course", url: "https://mv-course.vercel.app", color: C.amber },
+              { label: "Counterfactual Designs Course", url: "https://cfdesigns.vercel.app", color: C.copper },
               { label: "Bayesian Module", url: "https://bayesian-mv.vercel.app", color: C.violet },
-              { label: "Counterfactual Designs", url: "https://cfdesigns.vercel.app", color: C.green },
+              { label: "IPMVP Reference", url: "https://mv-course.vercel.app", color: C.amber },
             ].map(s => (
               <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
                 style={{ fontSize: 13, color: s.color, textDecoration: "none", fontWeight: 600 }}>
