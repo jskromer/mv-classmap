@@ -443,7 +443,13 @@ export default function StudentMap() {
             style={{ fontSize: 11, color: C.textDim, background: "none", border: `1px solid ${C.border}`, borderRadius: 6, padding: "6px 16px", cursor: "pointer", fontFamily: "'IBM Plex Sans', sans-serif" }}>
             Reset progress
           </button>
-          <div style={{ fontSize: 11, color: C.textDim, marginTop: 16 }}>
+          <div style={{ marginTop: 12 }}>
+            <a href="https://counterfactual-designs.com" target="_blank" rel="noopener noreferrer"
+              style={{ fontSize: 12, color: C.textDim, textDecoration: "none" }}>
+              counterfactual-designs.com
+            </a>
+          </div>
+          <div style={{ fontSize: 11, color: C.textDim, marginTop: 8 }}>
             Based on <em>The Role of the M&V Professional</em> by Steve Kromer (River Publishers, 2024)
           </div>
         </div>
