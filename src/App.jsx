@@ -91,16 +91,34 @@ const PHASES = [
       { id: "s17", label: "Counterfactual Designs Course", time: "30 min", url: "https://cfdesigns.vercel.app", site: "cfdesigns", desc: "The capstone. Boundary, Model Form, Duration — three dimensions that translate and sharpen the historic IPMVP Options A–D. After the hands-on work, this framework clicks." },
     ],
   },
+  {
+    id: "capstone",
+    num: 6,
+    title: "CMVP Capstone",
+    color: "#c0392b",
+    goal: "Apply everything to a realistic building. Build a complete M&V plan for a 62,000 sq ft government facility with four ECMs under an ESPC contract.",
+    checkpoint: "You have a defensible M&V plan that selects approaches, fits baseline models, handles a non-routine adjustment, and reports savings with uncertainty.",
+    note: "Uses EnergyPlus simulation data. The scenario includes a built-in NRA event that masks true savings — you have to find it.",
+    steps: [
+      { id: "s18", label: "Scenario & Stakeholders", time: "30 min", url: "https://cmvp-capstone.vercel.app", site: "cmvp-capstone", desc: "Meet the Greenfield Municipal Center. Four wings, four ECMs, seven stakeholders. Map risks and interests." },
+      { id: "s19", label: "Boundaries & Approach Selection", time: "30 min", url: "https://cmvp-capstone.vercel.app", site: "cmvp-capstone", desc: "Draw measurement boundaries for each ECM. Choose retrofit isolation vs. whole facility. Justify your decisions." },
+      { id: "s20", label: "Baseline Model Fitting", time: "45 min", url: "https://cmvp-capstone.vercel.app", site: "cmvp-capstone", desc: "Fit change-point models to monthly utility data. Validate against ASHRAE Guideline 14. Explore what happens when you override the change points." },
+      { id: "s21", label: "NRA Protocol & Reporting", time: "30 min", url: "https://cmvp-capstone.vercel.app", site: "cmvp-capstone", desc: "Discover the non-routine event in the reporting data. Design a protocol. Calculate adjusted savings." },
+      { id: "s22", label: "Plan Defense", time: "30 min", url: "https://cmvp-capstone.vercel.app", site: "cmvp-capstone", desc: "Assemble your M&V plan and prepare to defend it. Handle tough questions about gas increases, marginal significance, and ESCO disputes." },
+    ],
+  },
 ];
 
 const SITE_COLORS = {
   "cfdesigns": C.copper,
   "bayesian-mv": C.violet,
+  "cmvp-capstone": "#c0392b",
 };
 
 const SITE_LABELS = {
   "cfdesigns": "CF Designs",
   "bayesian-mv": "Bayesian Module",
+  "cmvp-capstone": "CMVP Capstone",
 };
 
 const STORAGE_KEY = "mv-checklist-progress";
@@ -177,7 +195,7 @@ export default function StudentMap() {
             Statistical Modeling for<br />Measurement & Verification
           </h1>
           <p style={{ fontSize: 16, color: C.textSoft, lineHeight: 1.75, maxWidth: 500, margin: "0 auto 12px" }}>
-            An interactive course in counterfactual reasoning for energy professionals. Five phases, seventeen modules, ~8 hours.
+            An interactive course in counterfactual reasoning for energy professionals. Six phases, twenty-two modules, ~9.5 hours.
           </p>
           <p style={{ fontSize: 13, color: C.textDim, fontStyle: "italic", marginBottom: 32 }}>
             Based on <em>The Role of the M&V Professional</em> by Steve Kromer (River Publishers, 2024)
@@ -259,7 +277,7 @@ export default function StudentMap() {
             M&V Statistical Modeling — Class Map
           </h1>
           <p style={{ fontSize: 15, color: C.textSoft, lineHeight: 1.7, maxWidth: 520, margin: "0 auto 28px" }}>
-            Five phases, seventeen modules. Check them off as you go.<br />
+            Six phases, twenty-two modules. Check them off as you go.<br />
             Your progress is saved automatically.
           </p>
 
@@ -413,6 +431,7 @@ export default function StudentMap() {
               { label: "Counterfactual Designs Course", url: "https://cfdesigns.vercel.app", color: C.copper },
               { label: "Bayesian Module", url: "https://bayesian-mv.vercel.app", color: C.violet },
               { label: "IPMVP Reference", url: "https://mv-course.vercel.app", color: C.amber },
+              { label: "CMVP Capstone", url: "https://cmvp-capstone.vercel.app", color: "#c0392b" },
             ].map(s => (
               <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
                 style={{ fontSize: 13, color: s.color, textDecoration: "none", fontWeight: 600 }}>
