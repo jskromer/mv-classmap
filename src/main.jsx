@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 const clerkKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
-if (clerkKey) {
+if (clerkKey && clerkKey.startsWith("pk_")) {
   createRoot(document.getElementById('root')).render(
     <StrictMode>
       <ClerkProvider publishableKey={clerkKey}>
