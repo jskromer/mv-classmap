@@ -1,14 +1,4 @@
 import { useState, useEffect } from "react";
-import { useUser, SignInButton, UserButton } from "@clerk/clerk-react";
-
-function useAuth() {
-  try {
-    const { isLoaded, isSignedIn, user } = useUser();
-    return { isLoaded, isSignedIn, user, enabled: true };
-  } catch {
-    return { isLoaded: true, isSignedIn: true, user: null, enabled: false };
-  }
-}
 
 const C = {
   bg: "#f5f0e8", surface: "#ebe5d9", card: "#ffffff",
@@ -173,99 +163,9 @@ export default function StudentMap() {
 
   const reset = () => { if (confirm("Reset all progress?")) setChecked({}); };
 
-  const { isLoaded, isSignedIn, user, enabled } = useAuth();
-
-  // Loading state
-  if (enabled && !isLoaded) return (
-    <div style={{ background: C.bg, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ fontSize: 14, color: C.textDim, fontFamily: "'IBM Plex Sans', sans-serif" }}>Loading…</div>
-    </div>
-  );
-
-  // Welcome gate for unauthenticated users
-  if (enabled && !isSignedIn) return (
-    <div style={{ background: C.bg, minHeight: "100vh", fontFamily: "'IBM Plex Sans', sans-serif", color: C.text }}>
-      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      <div style={{ borderBottom: `1px solid ${C.border}`, background: `linear-gradient(180deg, ${C.surface} 0%, ${C.bg} 100%)`, padding: "72px 24px 64px" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto", textAlign: "center" }}>
-          <div style={{ fontSize: 11, letterSpacing: 5, color: C.copper, fontWeight: 600, textTransform: "uppercase", marginBottom: 16, fontFamily: "'IBM Plex Mono', monospace" }}>
-            Counterfactual Designs
-          </div>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: C.white, margin: "0 0 16px", letterSpacing: -0.5, lineHeight: 1.2 }}>
-            Statistical Modeling for<br />Measurement & Verification
-          </h1>
-          <p style={{ fontSize: 16, color: C.textSoft, lineHeight: 1.75, maxWidth: 500, margin: "0 auto 12px" }}>
-            An interactive course in counterfactual reasoning for energy professionals. Six phases, twenty-two modules, ~9.5 hours.
-          </p>
-          <p style={{ fontSize: 13, color: C.textDim, fontStyle: "italic", marginBottom: 32 }}>
-            Based on <em>The Role of the M&V Professional</em> by Steve Kromer (River Publishers, 2024)
-          </p>
-          <SignInButton mode="modal">
-            <button style={{
-              background: C.copper, color: "#fff", border: "none", borderRadius: 8,
-              padding: "14px 36px", fontSize: 15, fontWeight: 600, cursor: "pointer",
-              fontFamily: "'IBM Plex Sans', sans-serif", transition: "opacity 0.2s",
-            }}
-              onMouseEnter={e => e.currentTarget.style.opacity = 0.85}
-              onMouseLeave={e => e.currentTarget.style.opacity = 1}>
-              Sign In to Start →
-            </button>
-          </SignInButton>
-          <p style={{ fontSize: 12, color: C.textDim, marginTop: 12 }}>
-            Free account · Track your progress across all modules
-          </p>
-        </div>
-      </div>
-
-      {/* Course overview (visible to everyone) */}
-      <div style={{ maxWidth: 600, margin: "0 auto", padding: "40px 24px" }}>
-        <div style={{ fontSize: 11, letterSpacing: 4, color: C.copper, fontWeight: 600, textTransform: "uppercase", marginBottom: 20, fontFamily: "'IBM Plex Mono', monospace" }}>
-          What You'll Learn
-        </div>
-        {PHASES.map(phase => (
-          <div key={phase.id} style={{ display: "flex", gap: 16, marginBottom: 20, alignItems: "flex-start" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 8, background: `${phase.color}15`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 700, color: phase.color, fontFamily: "'IBM Plex Mono', monospace", flexShrink: 0 }}>
-              {phase.num}
-            </div>
-            <div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: C.white, marginBottom: 2 }}>{phase.title}</div>
-              <div style={{ fontSize: 13, color: C.textSoft, lineHeight: 1.5 }}>{phase.steps.length} modules · {phase.steps.reduce((s, st) => s + parseInt(st.time), 0)} min</div>
-            </div>
-          </div>
-        ))}
-        <div style={{ textAlign: "center", marginTop: 32 }}>
-          <SignInButton mode="modal">
-            <button style={{
-              background: "none", border: `1px solid ${C.border}`, borderRadius: 8,
-              padding: "10px 24px", fontSize: 13, fontWeight: 600, color: C.copper,
-              cursor: "pointer", fontFamily: "'IBM Plex Sans', sans-serif",
-            }}>
-              Sign In to Begin →
-            </button>
-          </SignInButton>
-        </div>
-      </div>
-
-      <div style={{ borderTop: `1px solid ${C.border}`, padding: "24px", textAlign: "center" }}>
-        <div style={{ fontSize: 11, color: C.textDim }}>© 2025 Steve Kromer · SKEE</div>
-      </div>
-    </div>
-  );
-
-  // Signed in — full class map
   return (
     <div style={{ background: C.bg, minHeight: "100vh", fontFamily: "'IBM Plex Sans', sans-serif", color: C.text }}>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-      {/* Auth nav */}
-      {enabled && (
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "8px 24px", borderBottom: `1px solid ${C.border}`, background: C.surface }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 12, color: C.textDim }}>{user?.primaryEmailAddress?.emailAddress}</span>
-            <UserButton afterSignOutUrl="/" />
-          </div>
-        </div>
-      )}
 
       {/* Header */}
       <div style={{ borderBottom: `1px solid ${C.border}`, background: `linear-gradient(180deg, ${C.surface} 0%, ${C.bg} 100%)`, padding: "48px 24px 40px" }}>
