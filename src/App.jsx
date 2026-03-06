@@ -432,6 +432,7 @@ export default function StudentMap() {
               { label: "Bayesian Module", url: "https://bayesian-mv.vercel.app", color: C.violet },
               { label: "IPMVP Reference", url: "https://mv-course.vercel.app", color: C.amber },
               { label: "CMVP Capstone", url: "https://cmvp-capstone.vercel.app", color: "#c0392b" },
+              { label: "M&V Scorecard", url: "https://mnvscore.vercel.app", color: "#2c6fad" },
             ].map(s => (
               <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
                 style={{ fontSize: 13, color: s.color, textDecoration: "none", fontWeight: 600 }}>
